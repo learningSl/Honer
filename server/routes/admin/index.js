@@ -9,6 +9,7 @@ const router = express.Router({
 
 // const Categoty = require('../../models/category')
 router.post('/', async(req, res) => {
+    console.log(11)
     const model = await req.model.create(req.body)//插入数据
     res.send(model)
 })
@@ -19,7 +20,7 @@ router.get('/' , async(req, res) => {//populate('parent') 表示查出关联字�
         //console.log(1)
         queryOptions.populate = 'parent'
     }
-    const items = await req.model.find({}).setOptions(queryOptions).limit(10)//查找并限制数据条数
+    const items = await req.model.find({}).setOptions(queryOptions).limit(100)//查找并限制数据条数
     //console.log(items)
     //console.log(items)
     res.send(items)

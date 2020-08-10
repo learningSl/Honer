@@ -28,9 +28,8 @@ export default {
     },
     methods:{
         async fetch(){
-            console.log(2)
+            
             const res = await this.$http.get('/rest/articles')
-            console.log(res)
             if(res){
                 this.items = res.data
                 //console.log(this.items)

@@ -9,4 +9,17 @@ const schema = new mongoose.Schema({
         ref:'Categoty'   //指定关联的模型
     }
 })
+
+schema.virtual('children', {  //子分类
+    localField: '_id',
+    foreignField: 'parent',
+    justOne: false,
+    ref: 'Categoty'
+})
+schema.virtual('newsList', {
+    localField: '_id',
+    foreignField: 'categories',
+    justOne: false,
+    ref: 'Article'
+})
 module.exports = mongoose.model('Categoty', schema)
